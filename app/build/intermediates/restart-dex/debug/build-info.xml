@@ -4,7 +4,7 @@
     api-level="22"
     density="560dpi"
     format="7"
-    timestamp="876903747735"
+    timestamp="4206152270679"
     token="1772885224105214614" >
 
     <task
@@ -24,7 +24,7 @@
         location="/home/michael/AndroidStudioProjects/Githubbi/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="876903747735" >
+    <build timestamp="4206152270679" >
         <artifact
             location="/home/michael/AndroidStudioProjects/Githubbi/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />

@@ -31,4 +31,23 @@ public class GIthubRepository {
         return this.lastUpdatedTime;
     }
 
+    public void setTitle(String title){
+        this.title = title;
+    }
+    public void setDescription(String description){
+        this.description = description;
+    }
+    public void setLanguage(String Language){
+        this.language = language;
+    }
+    public void setOwnerName(String name){
+        this.ownerName = name;
+    }
+    public void setOwnerAvatar(String url){
+        this.ownerAvatar = url;
+    }
+    public void setLastUpdatedTime(Date time){
+        this.lastUpdatedTime = time;
+    }
+
 }

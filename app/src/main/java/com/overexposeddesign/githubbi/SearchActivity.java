@@ -7,12 +7,10 @@ import android.text.TextWatcher;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
-
 public class SearchActivity extends AppCompatActivity {
     //view
-    private TextView searchInput;
-    private ListView repositoryList;
+    private TextView mSearchInput;
+    private ListView mRepositoryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +18,15 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         //set view variables
-        searchInput = (TextView) findViewById(R.id.searchInput);
-        repositoryList = (ListView) findViewById(R.id.repositoryListView);
+        mSearchInput = (TextView) findViewById(R.id.searchInput);
+        mRepositoryList = (ListView) findViewById(R.id.repositoryListView);
 
         initEvents();
     }
 
     public void initEvents(){
         //Search Input event
-        searchInput.addTextChangedListener(new TextWatcher() {
+        mSearchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -44,5 +42,9 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void getData(){
+
     }
 }

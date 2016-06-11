@@ -1,9 +1,0 @@
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$styleable$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$string$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$mipmap$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$id$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/android/support/v7/appcompat/R$id$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$integer$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$style$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/overexposeddesign/githubbi/R$layout$override.class
-CHANGED,/home/michael/AndroidStudioProjects/Githubbi/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
