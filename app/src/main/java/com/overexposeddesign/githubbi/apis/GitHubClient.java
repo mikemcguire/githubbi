@@ -1,28 +1,39 @@
 package com.overexposeddesign.githubbi.apis;
 
-
-import com.overexposeddesign.githubbi.model.GIthubRepository;
-
+import com.overexposeddesign.githubbi.model.GithubRepository;
 import java.util.List;
-
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit.GsonConverterFactory;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
+import retrofit.http.GET;
+import retrofit.http.Query;
 
 public class GitHubClient {
+    private GitHubServiceInterface mService;
+    private static final String BASE_URL = "https://api.github.com/";
 
-    public static GitHubService getGithubService(){
+    public GitHubClient(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        GitHubService service = retrofit.create(GitHubService.class);
-
-        return service;
+        mService = retrofit.create(GitHubServiceInterface.class);
     }
-
-    public interface GitHubService {
+    public interface GitHubServiceInterface {
         @GET("/search/repositories")
-        void getRepositories(@Query("sort") String sort, @Query("q") String query, @Query("order") String order, Callback<List<GIthubRepository>> callback);
+        Call<List<GithubRepository>> getRepositories(@Query("q") String query, @Query("sort") String sort, @Query("order") String order);
+    }
+    public void listRepositories(String keywords) {
+        mService.getRepositories("linux", "stars", "DESC").enqueue(new Callback<List<GithubRepository>>() {
+            @Override public void onResponse(Response<List<GithubRepository>> response, Retrofit retrofit) {
+                System.out.println("[DEBUG]" + " RestApi onResponse Number of repositories- " +response.body().size());
+            }
+
+            @Override public void onFailure(Throwable t) {
+                System.out.println("[DEBUG]" + " RestApi onFailure - " + "");
+            }
+        });
     }
 }

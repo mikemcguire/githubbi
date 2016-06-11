@@ -7,10 +7,14 @@ import android.text.TextWatcher;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.overexposeddesign.githubbi.apis.GitHubClient;
+
+
 public class SearchActivity extends AppCompatActivity {
     //view
     private TextView mSearchInput;
     private ListView mRepositoryList;
+    private GitHubClient mGithubClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,10 @@ public class SearchActivity extends AppCompatActivity {
         mSearchInput = (TextView) findViewById(R.id.searchInput);
         mRepositoryList = (ListView) findViewById(R.id.repositoryListView);
 
+        mGithubClient = new GitHubClient();
+
         initEvents();
+
     }
 
     public void initEvents(){
@@ -40,11 +47,13 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
+                getData();
             }
         });
     }
 
-    private void getData(){
+    private void getData (){
 
+        mGithubClient.listRepositories("linux");
     }
 }

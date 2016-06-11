@@ -3,7 +3,7 @@ package com.overexposeddesign.githubbi.model;
 
 import java.util.Date;
 
-public class GIthubRepository {
+public abstract class GithubRepository {
     private String title;
     private String description;
     private String language;
