@@ -4,17 +4,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.overexposeddesign.githubbi.apis.GitHubClient;
+import com.overexposeddesign.githubbi.apis.GitHubService;
+import com.overexposeddesign.githubbi.model.Repository;
+import com.overexposeddesign.githubbi.model.SearchResults;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class SearchActivity extends AppCompatActivity {
     //view
     private TextView mSearchInput;
     private ListView mRepositoryList;
-    private GitHubClient mGithubClient;
+    private SearchResults searchResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +34,6 @@ public class SearchActivity extends AppCompatActivity {
         mSearchInput = (TextView) findViewById(R.id.searchInput);
         mRepositoryList = (ListView) findViewById(R.id.repositoryListView);
 
-        mGithubClient = new GitHubClient();
 
         initEvents();
 
@@ -47,13 +55,32 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                getData();
+
+                GitHubService gitHubService = GitHubService.retrofit.create(GitHubService.class);
+                final Call<SearchResults> call =
+                        gitHubService.getRepositories("linux", "stars", "desc");
+
+                call.enqueue(new Callback<SearchResults>() {
+                    @Override
+                    public void onResponse(Call<SearchResults> call, Response<SearchResults> response) {
+                        Log.d("SEARCH STATUS:", response.body().toString());
+                        searchResults = response.body();
+                        Repository[] results = searchResults.getItems();
+                        int count = Integer.parseInt(searchResults.getTotal_count());
+
+                        for (Repository result : results) {
+                            // process each result
+                            Log.d("RepoName", result.getName());
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<SearchResults> call, Throwable t) {
+                        Log.d("SEARCH STATUS", t.getMessage());
+                    }
+                });
             }
         });
     }
 
-    private void getData (){
 
-        mGithubClient.listRepositories("linux");
-    }
 }
