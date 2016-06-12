@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient">
     <data>
         <variable name="searchResults" type="com.overexposeddesign.githubbi.model.SearchResults"/>
     </data>
@@ -9,16 +10,15 @@
         tools:context="com.overexposeddesign.githubbi.SearchActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         >
-
-
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:id="@+id/searchInput"
             android:layout_centerHorizontal="true"
-            android:background="#16a6da"
+            android:background="#6fbece"
             android:shadowColor="#545454"
             android:selectAllOnFocus="true"
             android:hint="Type to search for a repository"
@@ -29,15 +29,17 @@
             android:textColor="#ffffff" />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@+id/searchInput"
             android:text="@{searchResults.total_count}"/>
 
 
-        <ListView
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/repositoryListView"
             android:layout_below="@+id/searchInput"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/results">
+
+        </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
 </layout>

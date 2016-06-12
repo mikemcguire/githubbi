@@ -1,9 +1,11 @@
 package com.overexposeddesign.githubbi.model;
 
+import java.util.ArrayList;
+
 public class SearchResults {
     private String incomplete_results;
 
-    private Repository[] items;
+    private ArrayList<Repository> items;
 
     private String total_count;
 
@@ -15,11 +17,11 @@ public class SearchResults {
         this.incomplete_results = incomplete_results;
     }
 
-    public Repository[] getItems() {
+    public ArrayList<Repository> getItems() {
         return items;
     }
 
-    public void setItems(Repository[] items) {
+    public void setItems(ArrayList<Repository> items) {
         this.items = items;
     }
 
