@@ -1,5 +1,6 @@
 package com.overexposeddesign.githubbi;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.overexposeddesign.githubbi.adapters.GithubAPIAdapter;
+import com.overexposeddesign.githubbi.databinding.ActivitySearchBinding;
 import com.overexposeddesign.githubbi.model.SearchResults;
 
 import java.util.Timer;
@@ -24,13 +26,14 @@ public class SearchActivity extends AppCompatActivity {
     private TextView mSearchInput;
     private GithubAPIAdapter mGithubAPIAdapter;
     private ListView mRepositoryList;
+    private ActivitySearchBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-
+        //setContentView(R.layout.activity_search);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_search);
         //set view variables
         mSearchInput = (TextView) findViewById(R.id.searchInput);
         mRepositoryList = (ListView) findViewById(R.id.repositoryListView);
@@ -96,6 +99,8 @@ public class SearchActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(SearchResults results) {
+                        SearchResults data = results;
+                        mBinding.setSearchResults(results);
                         Log.d("test", results.getTotal_count());
                     }
                 });
