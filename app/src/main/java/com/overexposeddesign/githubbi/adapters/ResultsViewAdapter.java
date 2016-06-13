@@ -42,7 +42,6 @@ public class ResultsViewAdapter extends RecyclerView.Adapter<RepositoryViewHolde
         binding.getRoot().findViewById(R.id.repository_item).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("click", "happened");
                 Intent intent = new Intent(view.getContext() ,ActivityWeb.class);
                 intent.putExtra("url", view.getTag().toString());
                 view.getContext().startActivity(intent);

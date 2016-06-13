@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.webkit.WebView;
 
+import com.overexposeddesign.githubbi.clients.WebClient;
+
 public class ActivityWeb extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,9 @@ public class ActivityWeb extends AppCompatActivity {
         String url = b.getString("url");
 
         WebView webView = (WebView) findViewById(R.id.webViewer);
+        webView.setWebViewClient(new WebClient());
         webView.loadUrl(url);
+
     }
 
 }
