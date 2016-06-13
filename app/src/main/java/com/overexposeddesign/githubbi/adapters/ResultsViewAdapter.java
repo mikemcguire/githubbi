@@ -1,23 +1,21 @@
 package com.overexposeddesign.githubbi.adapters;
 
 import android.content.Intent;
-import android.databinding.BindingAdapter;
+
 import android.databinding.DataBindingUtil;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
 
 
 import com.overexposeddesign.githubbi.ActivityWeb;
 import com.overexposeddesign.githubbi.R;
-import com.overexposeddesign.githubbi.SearchActivity;
 import com.overexposeddesign.githubbi.databinding.RepositoryListItemBinding;
 import com.overexposeddesign.githubbi.model.Repository;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.ArrayList;
 
