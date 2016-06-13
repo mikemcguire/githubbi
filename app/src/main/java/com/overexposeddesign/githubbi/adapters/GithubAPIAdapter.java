@@ -19,6 +19,12 @@ public class GithubAPIAdapter {
      * Search Github for repositories by keyword
      */
     public Observable<SearchResults> getRepositories(String text){
-        return (Observable<SearchResults>) gitHubService.getRepositories(text, "stars", "desc");
+        Observable<SearchResults> response = (Observable<SearchResults>) gitHubService.getRepositories(text, "stars", "desc");
+        return response;
+    }
+
+    public Observable<SearchResults> getRepositoriesPagination(String url){
+        Observable<SearchResults> response = (Observable<SearchResults>) gitHubService.getRepositoriesPaginate(url);
+        return response;
     }
 }

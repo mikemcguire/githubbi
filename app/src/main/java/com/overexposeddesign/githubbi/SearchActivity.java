@@ -30,6 +30,7 @@ public class SearchActivity extends AppCompatActivity {
     private GithubAPIAdapter mGithubAPIAdapter;
     private ActivitySearchBinding mBinding;
     private RecyclerView mResultsView;
+    Observable<SearchResults> mResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -98,10 +99,10 @@ public class SearchActivity extends AppCompatActivity {
         final SearchActivity self = this;
 
         //get an observable that contains or search results
-        Observable<SearchResults> results = mGithubAPIAdapter.getRepositories(keyword);
+        mResults = mGithubAPIAdapter.getRepositories(keyword);
 
         //wait for it
-        results.subscribeOn(Schedulers.newThread())
+        mResults.subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Observer<SearchResults>() {
 
@@ -124,4 +125,6 @@ public class SearchActivity extends AppCompatActivity {
                 }
             });
     }
+
+
 }
