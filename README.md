@@ -2,6 +2,8 @@
 
 Simple Android app that searches github repositories and opens them in a webview.
 
+![Alt text](/screencast.gif?raw=true "Optional Title")
+
 ## Architecture
 
 __Tools Used__
