@@ -1,13 +1,13 @@
 package com.overexposeddesign.githubbi;
 
 import android.databinding.DataBindingUtil;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.overexposeddesign.githubbi.adapters.GithubAPIAdapter;
@@ -50,7 +50,6 @@ public class SearchActivity extends AppCompatActivity {
         mResultsView.setAdapter(mResultsViewAdapter);
         initEvents();
     }
-
 
     /**
      * Initialize events for this Activity
@@ -105,6 +104,7 @@ public class SearchActivity extends AppCompatActivity {
         results.subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Observer<SearchResults>() {
+
                 @Override
                 public void onCompleted() {
                 }
