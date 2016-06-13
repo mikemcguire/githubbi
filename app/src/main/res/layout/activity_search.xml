@@ -28,17 +28,32 @@
             android:paddingRight="30dp"
             android:textColor="#ffffff" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:id="@+id/results_count_label"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:layout_below="@+id/searchInput"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:gravity="center_vertical"
+            android:background="#ffffff"
+            android:text="@string/results_count_label"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/results_count"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/searchInput"
+            android:layout_toRightOf="@id/results_count_label"
+            android:gravity="center_vertical"
+            android:background="#ffffff"
+            android:paddingRight="30dp"
             android:text="@{searchResults.total_count}"/>
-
-
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/searchInput"
-            android:id="@+id/results">
+            android:layout_below="@+id/results_count"
+            >
 
         </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
