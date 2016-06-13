@@ -4,6 +4,7 @@ import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.overexposeddesign.githubbi.R;
@@ -21,11 +22,11 @@ public class RepositoryViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-
     public void bindConnection(Repository repository){
         Owner owner = repository.getOwner();
         binding.setRepository(repository);
         binding.setOwner(owner);
 
     }
+
 }

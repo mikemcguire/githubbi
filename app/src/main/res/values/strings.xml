@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Githubbi</string>
     <string name="user_avatar">User Avatar</string>
+    <string name="title_activity_activity_web">ActivityWeb</string>
 </resources>
